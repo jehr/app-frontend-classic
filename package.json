@@ -1,0 +1,38 @@
+{
+  "name": "gth-app-frontend",
+  "version": "5.1.0",
+  "private": true,
+  "authors": {
+    "author1": "Juan Esteban Hernandez",
+    "author2": "Jhon Arcila Castano"
+  },
+  "description": "",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@mdi/font": "^5.9.55",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "@nuxtjs/vuetify": "^1.12.1",
+    "core-js": "^3.15.1",
+    "epic-spinners": "^1.1.0",
+    "nuxt": "^2.15.7",
+    "nuxt-vuex-localstorage": "^1.3.0",
+    "vue-clipboard2": "^0.3.3",
+    "vuetify": "^2.5.5"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "@nuxtjs/eslint-config": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "eslint": "^7.29.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-vue": "^7.12.1"
+  }
+}

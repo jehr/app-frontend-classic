@@ -1,0 +1,44 @@
+import { SuitableCitation } from '~/interfaces/components/pages/suitable-citation.interface'
+import { setProperty } from '~/plugins/helpers'
+
+const getDefaultState = () => ({
+  isSuitableCitationFilter: false,
+  suitableCitationFilters: {
+    search: '',
+    name: ''
+  },
+  editedSuitableCitation: { ...SuitableCitation }
+})
+
+export const state = () => ({
+  ...getDefaultState()
+})
+
+export const mutations = {
+  updateKey (state, payload) {
+    state[payload.object][payload.key] = payload.value
+  },
+
+  updateValue (state, payload) {
+    state[payload.key] = payload.value
+  },
+
+  resetState (state) {
+    Object.assign(state, getDefaultState())
+  },
+  setProperty
+}
+
+export const actions = {
+  actUpdateKey ({ commit }, payload) {
+    commit('updateKey', payload)
+  },
+
+  actUpdateValue ({ commit }, payload) {
+    commit('updateValue', payload)
+  },
+
+  resetSuitableCitationState ({ commit }) {
+    commit('resetState')
+  }
+}

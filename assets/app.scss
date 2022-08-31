@@ -1,0 +1,18 @@
+@import "variables";
+@import "fonts";
+
+.theme {
+  &-light {
+    background-color: $background-light !important;
+    font-family: $family-regular, sans-serif !important;
+    font-size: $font-primary !important;
+    color: $text-light !important;
+  }
+
+  &-dark {
+    background-color: $background-dark !important;
+    font-family: $family-regular, sans-serif !important;
+    font-size: $font-primary !important;
+    color: $text-dark !important;
+  }
+}
