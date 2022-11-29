@@ -8,6 +8,7 @@
       />
     </template>
     <template slot="content">
+      <FormUser v-if="isFormUser" />
       <FormCitation v-if="isFormCitation" />
       <ShowCitation v-if="isShowCitation" secondary-color="three" />
       <ShowCitationAssistance
@@ -25,6 +26,7 @@
 
 <script>
 import { mapState } from 'vuex'
+import FormUser from '~/components/Pages/Users/Create.vue'
 import FormCitation from '~/components/Pages/Citations/Create.vue'
 import ShowCitation from '~/components/Pages/Citations/Show.vue'
 import ShowCitationAssistance from '~/components/Pages/Citations/ShowAssistence.vue'
@@ -38,6 +40,7 @@ import UploadDocument from '~/components/Pages/Citations/UploadDocument.vue'
 
 export default {
   components: {
+    FormUser,
     FormCitation,
     ShowCitation,
     ShowCitationAssistance,
@@ -71,6 +74,7 @@ export default {
 
   computed: {
     ...mapState('option', [
+      'isFormUser',
       'isFormCitation',
       'isShowCitation',
       'isShowCitationAssistance',

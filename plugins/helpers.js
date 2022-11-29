@@ -122,6 +122,7 @@ export function showOptionModal (title, key, state = false) {
   const keys = [
     'isFormTraining',
     'isShowTraining',
+    'isFormUser',
     'isFormCitation',
     'isShowCitation',
     'isFormUploadDocument',

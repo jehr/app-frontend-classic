@@ -1,161 +1,131 @@
 <template>
-    <v-container fluid>
-      <!-- Cards and search -->
+    <v-container>
       <v-row>
-        <!-- Filter -->
-        <v-col
-          order-lg="1"
-          order-md="1"
-          order-sm="1"
-          order="2"
-          cols="12"
-          xl="3"
-          lg="3"
-          md="3"
-          sm="6"
-          xs="6"
-        >
-          <v-select
-            v-model="typeSearch"
-            :menu-props="{ top: false, offsetY: true }"
-            prepend-inner-icon="mdi-filter-outline"
-            label="Tipo de filtro"
-            :items="[
-              { name: 'Nombre', value: 'name' },
-              { name: 'Documento', value: 'document' },
-              { name: 'Teléfono', value: 'phone' }
-            ]"
-            item-color="primary"
-            item-value="value"
-            color="primary"
-            outlined
-            rounded
-            dense
-            hide-details
-          >
-            <template #selection="data">
-              <v-chip color="primary" small dark>
-                {{ data.item.name }}
-              </v-chip>
-            </template>
-            <template #item="data">
-              <small class="text--secondary">
-                {{ data.item.name }}
-              </small>
-            </template>
-          </v-select>
+        <v-col cols="2" style="border-color: 1px solid red;">
+            <v-row>
+                <!-- cards -->
+                <v-col
+                    cols="12"
+                    class="d-flex flex-column"
+                    >
+                        <Overview
+                            :value="activeUsers"
+                            secondary-color="secondary"
+                            icon="mdi-arrow-up-bold"
+                            primary-color="primary"
+                            title="Gestionados"
+                            width="115"
+                            dark
+                        />
+                        <Overview
+                            class="pt-5"
+                            :value="inactiveUsers"
+                            icon="mdi-arrow-down-bold"
+                            secondary-color="secondary"
+                            primary-color="primary"
+                            title="Pendientes"
+                            width="115"
+                            dark
+                        />
+                        <Overview
+                            class="pt-5"
+                            :value="totalUsers"
+                            icon="mdi-swap-vertical-bold"
+                            secondary-color="secondary"
+                            primary-color="primary"
+                            width="115"
+                            title="Total"
+                            dark
+                        />
+                </v-col>
+            </v-row>
         </v-col>
-        <!-- Search -->
-        <v-col
-          order-lg="2"
-          order-md="2"
-          order-sm="2"
-          order="3"
-          cols="12"
-          xl="3"
-          lg="3"
-          md="3"
-          sm="6"
-          xs="6"
-        >
-          <v-text-field
-            v-model="search"
-            append-icon="mdi-magnify"
-            label="Buscar por filtro seleccionado"
-            color="five"
-            hide-details
-            outlined
-            rounded
-            dense
-          />
-        </v-col>
-        <!-- Buttons -->
-        <v-col
-          order-lg="3"
-          order-md="3"
-          order-sm="3"
-          order="4"
-          cols="12"
-          xl="2"
-          lg="2"
-          md="2"
-          sm="4"
-          xs="12"
-        >
-          <v-btn
-            v-if="search && typeSearch"
-            color="secondary"
-            class="mt-1"
-            dark
-            rounded
-            small
-            @click="getCitations"
-          >
-            Buscar
-          </v-btn>
-          <v-btn
-            v-if="search && typeSearch && citations.length > 0"
-            color="grey"
-            class="mt-1"
-            dark
-            rounded
-            small
-            @click="clearSearch"
-          >
-            Limpiar
-          </v-btn>
-        </v-col>
-        <!-- cards -->
-        <v-col
-          order-lg="4"
-          order-md="4"
-          order-sm="4"
-          order="1"
-          cols="12"
-          xl="4"
-          lg="4"
-          md="4"
-          sm="8"
-          xs="12"
-          class="d-flex flex-row justify-center"
-        >
-          <Overview
-            :value="activeUsers"
-            secondary-color="secondary"
-            icon="mdi-arrow-up-bold"
-            primary-color="primary"
-            title="Gestionados"
-            width="115"
-            dark
-          />
-  
-          <Overview
-            class="mx-2"
-            :value="inactiveUsers"
-            icon="mdi-arrow-down-bold"
-            secondary-color="secondary"
-            primary-color="primary"
-            title="Pendientes"
-            width="115"
-            dark
-          />
-  
-          <Overview
-            :value="totalUsers"
-            icon="mdi-swap-vertical-bold"
-            secondary-color="secondary"
-            primary-color="primary"
-            width="115"
-            title="Total"
-            dark
-          />
-        </v-col>
-      </v-row>
+        <v-col cols="10">
+            <v-row>
+                <!-- Filter -->
+                <v-col
+                  cols="12"
+                  md="4"
+                >
+                  <v-select
+                    v-model="typeSearch"
+                    :menu-props="{ top: false, offsetY: true }"
+                    prepend-inner-icon="mdi-filter-outline"
+                    label="Tipo de filtro"
+                    :items="[
+                      { name: 'Nombre', value: 'name' },
+                      { name: 'Documento', value: 'document' }
+                    ]"
+                    item-color="primary"
+                    item-value="value"
+                    color="primary"
+                    outlined
+                    rounded
+                    dense
+                    hide-details
+                  >
+                    <template #selection="data">
+                      <v-chip color="primary" small dark>
+                        {{ data.item.name }}
+                      </v-chip>
+                    </template>
+                    <template #item="data">
+                      <small class="text--secondary">
+                        {{ data.item.name }}
+                      </small>
+                    </template>
+                  </v-select>
+                </v-col>
+                <!-- Search -->
+                <v-col
+                 md="7"
+                >
+                  <v-text-field
+                    v-model="search"
+                    append-icon="mdi-magnify"
+                    label="Buscar por filtro seleccionado"
+                    color="five"
+                    hide-details
+                    outlined
+                    rounded
+                    dense
+                  />
+                </v-col>
+                <!-- Buttons -->
+                <v-col
+                  md="1"
+                >
+                  <v-btn
+                    v-if="search && typeSearch"
+                    color="primary"
+                    class="mt-1"
+                    dark
+                    rounded
+                    small
+                    @click="getCitations"
+                  >
+                    Buscar
+                  </v-btn>
+                  <v-btn
+                    v-if="search && typeSearch && users.length > 0"
+                    color="grey"
+                    class="mt-1"
+                    dark
+                    rounded
+                    small
+                    @click="clearSearch"
+                  >
+                    Limpiar
+                  </v-btn>
+                </v-col>
+
+            </v-row>
+
       <!--- Table -->
-      <v-row v-if="citations.length > 0">
+      <v-row v-if="users.length > 0">
         <v-col cols="12" md="12">
           <v-card class="rounded-xl pa-5" elevation="10" outlined>
-            <Table :items="citations" :headers="headers" primary-color="white">
+            <Table :items="users" :headers="headers" primary-color="white">
               <!-- Lector CC-->
               <template #lectorCC="{category}">
                 <span hidden>{{ validLectorDocument(category.document) }} </span>
@@ -198,6 +168,10 @@
         <Options @refreshCitations="reciveRefresh" />
       </v-row>
       <EmptyState v-else />
+        </v-col>
+       
+      </v-row>
+     
     </v-container>
   </template>
   
@@ -206,18 +180,19 @@
   import { loader } from '~/interfaces/loader.interface'
   import Table from '@/components/layout/Table'
   import { propertiesGenerator } from '~/plugins/helpers'
-  import Actions from '~/components/Pages/Citations/Actions.vue'
+  import Actions from '~/components/Pages/Users/Actions.vue'
   import { AspirantController } from '~/controllers/aspirant.controller'
   import { CitationController } from '~/controllers/citation.controller'
+  import { UserController } from '~/controllers/user.controller'
   import {
     crudCreateOrUpdateCitation,
     crudShowCitation,
     uploadIdentificationDocument
   } from '~/plugins/crud'
   import { VModelCitation } from '~/interfaces/components/pages/citation.interface'
-  import EmptyState from '~/components/Pages/Citations/EmptyState'
-  import Options from '~/components/Pages/Citations/Options.vue'
-  import Overview from '~/components/Pages/Citations/Overview.vue'
+  import EmptyState from '~/components/Pages/Users/EmptyState'
+  import Options from '~/components/Pages/Users/Options.vue'
+  import Overview from '~/components/Pages/Users/Overview.vue'
   
   export default {
     components: {
@@ -231,26 +206,20 @@
     middleware: ['set-endpoint', 'not-auth-admin'],
   
     async asyncData () {
-      const citations = await CitationController.get.all()
-      return { citations: citations || [] }
+      const users = await UserController.get.all()
+      return { users: users.data || [] }
     },
   
     data: () => ({
-      citations: [],
+      users: [],
       typeSearch: '',
       search: '',
       headers: [
         { text: 'Documento', align: 'start', value: 'document' },
-        { text: 'Nombre', align: 'start', value: 'fullName' },
-        { text: 'Telefono', align: 'start', value: 'phone_1' },
-        { text: 'Fecha', align: 'start', value: 'rdate' },
-        { text: 'Hora', align: 'start', value: 'hourOfCitation' },
-        { text: 'Campaña Presence', align: 'start', value: 'campaignName' },
-        { text: 'Campaña', align: 'start', value: 'cited_Uno27' },
-        { text: 'Cargo', align: 'start', value: 'interestedType' },
-        { text: 'Tipificación', align: 'center', value: 'typification' },
+        { text: 'Nombre', align: 'start', value: 'names' },
+        { text: 'Telefono', align: 'start', value: 'phone1' },
+        { text: 'Correo', align: 'start', value: 'email' },
         { text: 'Estado', align: 'center', value: 'status' },
-        { text: 'Lector CC', align: 'center', value: 'lectorCC' },
         { text: 'Acciones', value: 'actions', sortable: false }
       ]
     }),
@@ -267,14 +236,15 @@
         mut: 'citation/setProperty'
       }),
       activeUsers () {
-        return [...this.citations].filter(user => user.statusOfManagement).length
+        console.log(this.users)
+        // return [...this.users].filter(user => user.statusOfManagement).length
       },
-      inactiveUsers () {
-        return [...this.citations].filter(user => !user.statusOfManagement).length
-      },
-      totalUsers () {
-        return this.activeUsers + this.inactiveUsers
-      }
+      // inactiveUsers () {
+      //   return [...this.users].filter(user => !user.statusOfManagement).length
+      // },
+      // totalUsers () {
+      //   return this.activeUsers + this.inactiveUsers
+      // }
     },
   
     watch: {
@@ -305,17 +275,17 @@
         const valueFilter = this.search
   
         if (this.typeSearch === 'phone') {
-          this.citations = await CitationController.get.byPhone(
+          this.users = await UserController.get.byPhone(
             loading,
             valueFilter
           )
         } else if (this.typeSearch === 'document') {
-          this.citations = await CitationController.get.byDocument(
+          this.users = await UserController.get.byDocument(
             loading,
             valueFilter
           )
         } else if (this.typeSearch === 'name') {
-          this.citations = await CitationController.get.byName(
+          this.users = await UserController.get.byName(
             loading,
             valueFilter
           )
@@ -327,7 +297,7 @@
       async clearSearch () {
         this.typeSearch = ''
         this.search = ''
-        this.citations = await CitationController.get.all()
+        this.users = await UserController.get.all()
       },
   
       async onEvents () {
@@ -392,8 +362,8 @@
         }
       },
       async reciveRefresh () {
-        const citations = await CitationController.get.all()
-        this.citations = citations
+        const users = await UserController.get.all()
+        this.users = users
       }
     }
   }

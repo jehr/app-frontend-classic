@@ -1,9 +1,17 @@
 import { showOptionModal, upValStore } from '~/plugins/helpers'
 import { Citation } from '~/interfaces/components/pages/citation.interface'
+import { User } from '~/interfaces/components/pages/user.interface'
 import { SuitableCitation } from '~/interfaces/components/pages/suitable-citation.interface'
 import { Selection } from '~/interfaces/components/pages/selection.interface'
 import { Aspirant } from '~/interfaces/components/pages/aspirant.interface'
 import { AspirantController } from '~/controllers/aspirant.controller'
+
+export function crudCreateOrUpdateUser (user) {
+  const title = user && user.id ? 'Editar Usuario' : 'Crear Usuario'
+  const customUser = user ? { ...user } : { ...User }
+  upValStore('user', 'editedUser', customUser)
+  showOptionModal(title, 'isFormUser', true)
+}
 
 export function crudCreateOrUpdateCitation (citation) {
   const title = citation && citation.id ? 'Editar Citación' : 'Crear Citación'

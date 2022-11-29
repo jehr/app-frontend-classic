@@ -1,20 +1,13 @@
-const getDefaultState = () => ({
-  isFormTraining: false,
-  isShowTraining: false,
-  isFormUser: false,
-  isFormCitation: false,
-  isShowCitation: false,
-  isFormUploadDocument: false,
-  isShowCitationAssistance: false,
-  isFormSuitableCitation: false,
-  isFormSuitable: false,
-  isFormSelection: false,
-  isModal: false,
-  isAptoCreate: false,
-  titleModal: '',
+import { User } from '~/interfaces/components/pages/user.interface'
+import { setProperty } from '~/plugins/helpers'
 
-  // Configs
-  typesManagements: []
+const getDefaultState = () => ({
+  isUserFilter: false,
+  userFilters: {
+    search: '',
+    name: ''
+  },
+  editedUser: { ...User }
 })
 
 export const state = () => ({
@@ -32,7 +25,8 @@ export const mutations = {
 
   resetState (state) {
     Object.assign(state, getDefaultState())
-  }
+  },
+  setProperty
 }
 
 export const actions = {
@@ -41,10 +35,11 @@ export const actions = {
   },
 
   actUpdateValue ({ commit }, payload) {
+    console.log(payload)
     commit('updateValue', payload)
   },
 
-  resetOptionState ({ commit }) {
+  resetCitationState ({ commit }) {
     commit('resetState')
   }
 }
