@@ -1,10 +1,9 @@
 {
-  "name": "gth-app-frontend",
-  "version": "5.1.0",
+  "name": "classic",
+  "version": "1.0.0",
   "private": true,
   "authors": {
-    "author1": "Juan Esteban Hernandez",
-    "author2": "Jhon Arcila Castano"
+    "author1": "Juan Esteban Hernandez"
   },
   "description": "",
   "scripts": {

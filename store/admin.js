@@ -1,9 +1,16 @@
 const getDefaultState = () => ({
   drawers: [
     {
-      name: 'Citaciones',
+      name: 'Usuarios',
+      to: '/users',
+      icon: 'mdi-account',
+      access: [],
+      subRoutes: []
+    },
+    {
+      name: 'Valoraciones',
       to: '/citations',
-      icon: 'mdi-emoticon-excited',
+      icon: 'mdi-medical-bag',
       access: [],
       subRoutes: []
     },

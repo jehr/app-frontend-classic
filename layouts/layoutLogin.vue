@@ -40,7 +40,7 @@ export default {
 
 <style>
 .body-large {
-  background: url('./static/Img/backgroundGthUp.png');
+  background: url('./static/Img/backgroundClassic.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

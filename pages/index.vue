@@ -2,17 +2,19 @@
   <v-container>
     <v-form ref="formInboundLogin" v-model="valid" @submit.prevent="sendForm">
       <v-row align="start">
-        <v-col cols="12" md="3" offset-md="2">
+        <v-col cols="12" md="3" offset-md="1">
           <div class="align-self-center">
-            <div
-              v-if="$vuetify.breakpoint.name === 'xs'"
+            <!-- <div
               class="d-flex justify-center"
             >
-              <img :src="imageMobile" class="mt-3" alt="Logo" width="340">
-            </div>
+              <img :src="imageMobile" class="mt-3" alt="Logo" width="140">
+            </div> -->
             <!-- Bottoms login -->
             <v-row dense :style="'margin-top:' + height">
-              <v-col cols="12" md="12" xs="12" lg="12" sm="12">
+              <v-col cols="5" offset-md="4">
+                <h2 style="color: white; text-align: center;" class="align-self-center">CLASSIC GYM</h2>
+              </v-col>
+              <v-col cols="12" md="12" xs="12" lg="12" sm="12" class="pt-10">
                 <v-text-field
                   v-model="credentials.login"
                   :rules="rules.login"
@@ -40,7 +42,7 @@
                   :disabled="!valid || isPosting"
                   :loading="isPosting"
                   :dark="valid"
-                  color="#e71d73"
+                  color="#000"
                   type="submit"
                   rounded
                   block
@@ -59,7 +61,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import imageMobile from '~/static/Img/logoGthMain.png'
+import imageMobile from '~/static/Img/logo.png'
 import { AuthController } from '~/controllers/auth.controller'
 
 export default {
@@ -92,15 +94,15 @@ export default {
         case 'xs':
           return '50px'
         case 'sm':
-          return '500px'
+          return '400px'
         case 'md':
-          return '480px'
+          return '130px'
         case 'lg':
-          return '480px'
+          return '130px'
         case 'xl':
-          return '520px'
+          return '420px'
         default:
-          return '520px'
+          return '420px'
       }
     }
   },

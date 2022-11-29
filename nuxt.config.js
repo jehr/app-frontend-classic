@@ -84,8 +84,8 @@ export default {
       dark: false,
       themes: {
         dark: {
-          primary: '#4b2b5b',
-          secondary: '#eb0878'
+          primary: '#000',
+          secondary: '#fff'
           // three: "",
           // four: "",
           // five: "",
@@ -95,8 +95,8 @@ export default {
           // success: ""
         },
         light: {
-          primary: '#4b2b5b',
-          secondary: '#eb0878',
+          primary: '#000',
+          secondary: '#fff',
           three: '#000000',
           // four: "",
           // five: "",
@@ -128,8 +128,8 @@ export default {
       source: '/static/icon.png'
     },
     manifest: {
-      name: 'Citaciones',
-      short_name: 'Citaciones',
+      name: 'Classic GYM',
+      short_name: 'Classic GYM',
       lang: 'es',
       useWebmanifestExtension: false
     },

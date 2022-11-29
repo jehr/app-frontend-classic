@@ -11,7 +11,7 @@ export const AuthController = {
       const data = await $nuxt.$api.$post('auth-token', credentials)
       if (data) {
         setLogin('admin', data.token, data.user)
-        $nuxt.$router.push({ name: 'citations' })
+        $nuxt.$router.push({ name: 'users' })
       } else {
         toast.show('error', 'Usuario o contraseña incorrectos')
       }

@@ -107,7 +107,7 @@ export default {
     validateAccess,
     logout,
     home () {
-      this.$router.push('/citations')
+      this.$router.push('/users')
     }
   }
 }
