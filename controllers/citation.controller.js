@@ -13,7 +13,7 @@ export const CitationController = {
         loader.show('Estamos consultando la información, espere por favor...')
       }
 
-      const data = await $nuxt.$api.$get('citations/from-today')
+      const data = await $nuxt.$api.$get('valoration/from-today')
       if (data) {
         return data
       }
@@ -24,7 +24,7 @@ export const CitationController = {
         loader.show('Estamos consultando la información, espere por favor...')
       }
 
-      const data = await $nuxt.$api.$get(`citations/${params}/by-phone`)
+      const data = await $nuxt.$api.$get(`valoration/${params}/by-phone`)
       if (data) {
         return data
       }
@@ -35,7 +35,7 @@ export const CitationController = {
         loader.show('Estamos consultando la información, espere por favor...')
       }
 
-      const data = await $nuxt.$api.$get(`citations/${params}/by-document`)
+      const data = await $nuxt.$api.$get(`valoration/${params}/by-document`)
       if (data) {
         return data
       }
@@ -45,7 +45,7 @@ export const CitationController = {
       if (loading) {
         loader.show('Estamos consultando la información, espere por favor...')
       }
-      const data = await $nuxt.$api.$get(`citations/${params}/by-name`)
+      const data = await $nuxt.$api.$get(`valoration/${params}/by-name`)
       if (data) {
         return data
       }
@@ -53,7 +53,7 @@ export const CitationController = {
     duplicate: async (params = '') => {
       customBaseURL(BACKEND_API_URL)
       loader.show('Estamos consultando la información, espere por favor...')
-      const data = await $nuxt.$api.$get(`citations/${params}/duplicated`)
+      const data = await $nuxt.$api.$get(`valoration/${params}/duplicated`)
       if (data) {
         $nuxt.$emit('refresh-citation')
         toast.show('success', 'Se actualizado la citación correctamente')
@@ -66,7 +66,7 @@ export const CitationController = {
         loader.show('Estamos consultando la información, espere por favor...')
       }
 
-      const data = await $nuxt.$api.$get('citations/reason-type')
+      const data = await $nuxt.$api.$get('valoration/reason-type')
       if (data) {
         return data
       }
@@ -100,7 +100,7 @@ export const CitationController = {
 
       loader.show('estamos guardando la citación, espere por favor...')
       const data = await $nuxt.$api.$post(
-        'citations',
+        'valoration',
         citation.clearPayload(payload)
       )
 
@@ -143,7 +143,7 @@ export const CitationController = {
 
       loader.show('estamos actualizando la citación, espere por favor...')
 
-      const data = await $nuxt.$api.$put(`citations/${id}`, citationData)
+      const data = await $nuxt.$api.$put(`valoration/${id}`, citationData)
 
       if (data) {
         if (type === 1) {

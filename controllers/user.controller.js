@@ -60,17 +60,7 @@ export const UserController = {
         return data
       }
     },
-    reason: async (loading) => {
-      customBaseURL(BACKEND_API_URL)
-      if (loading) {
-        loader.show('Estamos consultando la información, espere por favor...')
-      }
-
-      const data = await $nuxt.$api.$get('users/reason-type')
-      if (data) {
-        return data
-      }
-    },
+    
     suitableByDocument: async (params = '') => {
       customBaseURL(BACKEND_API_URL)
       const data = await $nuxt.$api.$get(

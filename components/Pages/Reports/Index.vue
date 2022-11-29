@@ -1,29 +1,25 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="6">
+      <v-col cols="12" md="6" class="pt-10">
         <v-card elevation="10" class="pb-10">
           <div class="text-center py-10">
-            <h5 class="secondary--text text-uppercase">
-              Descargar reporte citaciones aptas
+            <h5 class="primary--text text-uppercase">
+              Descargar el reporte que deseas
             </h5>
           </div>
           <div>
             <v-row>
-              <v-col cols="10" md="8" offset="1">
+              <v-col cols="10" md="10" offset="1">
                 <v-select
                   v-model="typeDowload"
                   :menu-props="{ top: false, offsetY: true }"
                   prepend-inner-icon="mdi-filter-outline"
                   label="Tipo de descarga"
                   :items="[
-                    { name: 'APTOS', value: '1' },
-                    { name: 'CITADOS', value: '8' },
-                    { name: 'NO APTOS', value: '2' },
-                    { name: 'NO ASISTE', value: '4' },
-                    { name: 'PERSONAS ESCANEADAS', value: '5' },
-                    { name: 'POR GESTIONAR', value: '3' },
-                    { name: 'TODOS', value: '7' }
+                    { name: 'Mensualidades', value: '1' },
+                    { name: 'Usuarios', value: '2' },
+                    { name: 'Valoraciones', value: '3' }
                   ]"
                   item-color="primary"
                   item-value="value"
@@ -45,7 +41,7 @@
                   </template>
                 </v-select>
               </v-col>
-              <v-col cols="10" :md="doubleDate ? 4 : 8" offset="1">
+              <v-col cols="10" :md="doubleDate ? 5 : 10" offset="1">
                 <v-menu
                   ref="menu"
                   v-model="menu"
@@ -156,8 +152,8 @@
       </v-col>
       <v-col cols="10" md="6">
         <div class="text-center pt-10">
-          <v-list-item-avatar size="350">
-            <img src="/Img/logo3.svg">
+          <v-list-item-avatar size="400">
+            <img src="/undraw/report.svg">
           </v-list-item-avatar>
         </div>
       </v-col>

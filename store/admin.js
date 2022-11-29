@@ -1,6 +1,13 @@
 const getDefaultState = () => ({
   drawers: [
     {
+      name: 'Comunicados',
+      to: '/comunications',
+      icon: 'mdi-comment-processing-outline',
+      access: [],
+      subRoutes: []
+    },
+    {
       name: 'Usuarios',
       to: '/users',
       icon: 'mdi-account',

@@ -1,17 +1,8 @@
 export const Citation = {
   id: '',
   document: '',
-  fullName: '',
-  phone_1: '',
-  campaignName: '',
-  interestedType: '',
   dateOfCitation: '',
   hourOfCitation: '',
-  tipification: '',
-  observation: '',
-  observationNotSuitable: '',
-  reasonType: '',
-  typificationId: ''
 }
 
 export const VModelCitation = [
@@ -34,33 +25,6 @@ export const VModelCitation = [
     upper: true
   },
   {
-    property: 'citationItemFullName',
-    oneKey: 'editedCitation',
-    twoKey: 'fullName',
-    defaultValue: Citation.fullName,
-    upper: true
-  },
-  {
-    property: 'citationItemPhone1',
-    oneKey: 'editedCitation',
-    twoKey: 'phone_1',
-    defaultValue: Citation.phone_1
-  },
-  {
-    property: 'citationItemCampaignName',
-    oneKey: 'editedCitation',
-    twoKey: 'campaignName',
-    defaultValue: Citation.campaignName,
-    upper: true
-  },
-  {
-    property: 'citationItemInterestedType',
-    oneKey: 'editedCitation',
-    twoKey: 'interestedType',
-    defaultValue: Citation.interestedType,
-    upper: true
-  },
-  {
     property: 'citationItemDateCitation',
     oneKey: 'editedCitation',
     twoKey: 'dateOfCitation',
@@ -71,39 +35,6 @@ export const VModelCitation = [
     oneKey: 'editedCitation',
     twoKey: 'hourOfCitation',
     defaultValue: Citation.hourOfCitation
-  },
-  {
-    property: 'citationItemTipification',
-    oneKey: 'editedCitation',
-    twoKey: 'tipification',
-    defaultValue: Citation.tipification
-  },
-  {
-    property: 'citationItemObservation',
-    oneKey: 'editedCitation',
-    twoKey: 'observation',
-    defaultValue: Citation.observation,
-    upper: true
-  },
-  {
-    property: 'citationItemObservationNotSuitable',
-    oneKey: 'editedCitation',
-    twoKey: 'observationNotSuitable',
-    defaultValue: Citation.observationNotSuitable,
-    upper: true
-  },
-  {
-    property: 'citationItemReasonType',
-    oneKey: 'editedCitation',
-    twoKey: 'reasonType',
-    defaultValue: Citation.reasonType,
-    upper: true
-  },
-  {
-    property: 'citationItemTypificationId',
-    oneKey: 'editedCitation',
-    twoKey: 'typificationId',
-    defaultValue: Citation.typificationId
   }
 ]
 

@@ -2,7 +2,8 @@
   <v-app class="app-light" dark>
     <v-app-bar clipped-left class="primary" app fixed>
       <v-toolbar-title class="white--text" @click="home">
-        <img src="~/static/Img/logoGthMainWhite.png" alt="logo" width="90">
+        <b>CLASSIC GYM</b>
+        <!-- <img src="~/static/Img/logoGthMainWhite.png" alt="logo" width="90"> -->
       </v-toolbar-title>
       <v-spacer />
       <v-btn
